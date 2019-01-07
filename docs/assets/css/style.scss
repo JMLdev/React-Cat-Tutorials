@@ -2,3 +2,16 @@
 ---
 
 @import "{{ site.theme }}";
+
+.inner {
+    width: 80%;
+}
+
+#main-content {
+    width: 80%;
+    float: right;
+}
+
+aside#sidebar {
+    width: 19%;
+}
