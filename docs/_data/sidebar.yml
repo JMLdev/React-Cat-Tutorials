@@ -1,0 +1,11 @@
+docs_list_title: Navigation
+docs:
+
+- title: Introduction
+  url: index.md
+
+- title: Setup Requirements
+  url: setup.md
+
+- title: Configuration
+  url: configuration.md
