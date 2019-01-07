@@ -4,8 +4,11 @@ docs:
 - title: Introduction
   url: index.html
 
-- title: Setup Requirements
-  url: setup.html
+- title: Installation Dependencies
+  url: dependencies.html
 
 - title: Configuration
   url: configuration.html
+
+- title: Project Setup
+  url: setup.html
