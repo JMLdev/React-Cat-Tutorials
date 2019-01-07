@@ -9,7 +9,7 @@ Welcome to our in-depth React.js course. The goal of this course is to teach sev
 
 ### Key concepts covered in this course
 
-- [Configuring](configuration.md) your computer for React.js development
+- [Configuring](dependencies.md) your computer for React.js development
 - Creating a local installation of React.js
 - Editing the app shell to fit your needs
 - Configuring the `react-router` to serve your website
