@@ -1,3 +1,8 @@
+---
+title: Introduction
+layout: default
+---
+
 # Testing
 
 [setup](setup.md)
