@@ -2,10 +2,10 @@ docs_list_title: Navigation
 docs:
 
 - title: Introduction
-  url: index.md
+  url: index.html
 
 - title: Setup Requirements
-  url: setup.md
+  url: setup.html
 
 - title: Configuration
-  url: configuration.md
+  url: configuration.html
