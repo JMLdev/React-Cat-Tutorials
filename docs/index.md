@@ -1,6 +1,6 @@
 # Testing
 
-[Page 2](page2.md)
+[setup](setup.md)
 
 ## Welcome to GitHub Pages
 
