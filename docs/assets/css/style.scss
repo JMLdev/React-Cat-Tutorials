@@ -15,8 +15,17 @@
 aside#sidebar {
     width: 19%;
     float: left;
+    font-size: 16px;
+}
+
+body {
+    font-size: 18px;
 }
 
 header h1 {
     width: auto;
+}
+
+.main-content-wrap {
+    padding-left: 24px;
 }
