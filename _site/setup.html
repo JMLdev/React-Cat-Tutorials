@@ -45,7 +45,62 @@
         <div class="inner clearfix">
             <section id="main-content">
                 <div class="main-content-wrap">
-                    <p>blobby blobberson</p>
+                    <h1 id="project-setup">Project setup</h1>
+
+<p>Once your computer has all the <a href="/dependencies.html">required dependencies</a> you are ready to begin.</p>
+
+<h2 id="create-a-react-application">Create a React Application</h2>
+
+<p>There’s a great package that will do most of the heavy lifting for you, when Starting a new React.js project. It won’t always fit your needs, but it is ideal for most smaller projects. You will use the command line interface for this step, so either open a command prompt (terminal) in your project folder location, or press <code class="highlighter-rouge">ctrl+</code>` to open the terminal in Visual Studio code.</p>
+
+<p>Once Terminal is open, type the following, where ‘my-app-name’ is whatever you want the app and parent folder to be called.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npx create-react-app my-app-name
+</code></pre></div></div>
+
+<p>This will isntall React and all of it’s associated file requirements, webpack, a local test server, and babel. Once it is finished, type</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd my-app-name
+</code></pre></div></div>
+
+<p>then feel free to look around. Don’t open <code class="highlighter-rouge">node_modules</code> though, there’s about a billion folders in there.</p>
+
+<p>Your core site files reside in the <code class="highlighter-rouge">src</code> folder, and the <code class="highlighter-rouge">public</code> folder hosts the shell files for the web browser. When you are finished looking around type the following into the browser</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm start
+</code></pre></div></div>
+
+<p>If you’ve done everything correctly up until now, npm will spin up a development browser and launch your brand new React app. If it doesn’t automatically load in the browser, ctrl+click one of the links in the terminal output. Once you see the spinning logo, you can be sure you are on-track. Give yourself a pat on the back, but don’t close terminal.</p>
+
+<h3 id="add-reactstrap">Add Reactstrap</h3>
+
+<p>Since this tutorial is really about learning react, and not about learning basic website development, we’re going to use <a href="https://reactstrap.github.io/">Reactstrap</a> to create our web pages. Reactstrap is <a href="https://getbootstrap.com/docs/4.0/getting-started/introduction/">Bootstrap 4</a>’s React.js port. It will allow us to leverage an existing grid and components so we only have to implement minimal styling considerations.</p>
+
+<p>In the same terminal as above, type</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm install bootstrap --save
+npm install --save reactstrap react react-dom
+</code></pre></div></div>
+
+<p>This will install Bootstrap, update React - even though we don’t really need to since we just installed it - install the react-dom if you don’t already have it, and most importantly it installs Reactstrap. The <code class="highlighter-rouge">--save</code> flag updates your package.json file. All of these files will be maintained by NPM and stored under the <code class="highlighter-rouge">node_modules</code> folder. You don’t need to mess with them.</p>
+
+<p>None of this actually imports the Bootstrap styles to your app though, so we’ll do that now. Open the <code class="highlighter-rouge">src/index.js</code> file and paste the following code under the second to last import, with a line break above it. The idea here is to group like imports together, so they’re easily readable.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import 'bootstrap/dist/css/bootstrap.min.css';
+</code></pre></div></div>
+
+<p>The top of your index.js file should now look like this. We’ve grouped React stuff together, and then anciliary stuff at the end.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+
+import "bootstrap/dist/css/bootstrap.min.css";
+import * as serviceWorker from './serviceWorker';
+</code></pre></div></div>
+
+<p>That’s it! You have a fully functional React.js application that is leveraging Reactstrap for styling and component markup. Go ahead to the next lesson to start building.</p>
 
                     <nav class="pagination">
                         
@@ -62,6 +117,11 @@
                                     <a href="/configuration.html" class="pagination-prev"><span class="arrows">&larr;</span> Configuration</a>
                                 
                                 
+                                    
+                                    <a href="/app-homepage.config.md" class="pagination-next">Setup App Homepage <span class="arrows">&rarr;</span></a>
+                                
+                            
+                        
                             
                         
                     </nav>
@@ -80,6 +140,8 @@
                         <li><a href="/configuration.html">Configuration</a></li>
                         
                         <li><a href="/setup.html">Project Setup</a></li>
+                        
+                        <li><a href="/app-homepage.config.md">Setup App Homepage</a></li>
                         
                     </ul>
                 </nav>

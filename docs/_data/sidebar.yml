@@ -12,3 +12,6 @@ docs:
 
 - title: Project Setup
   url: /setup.html
+
+- title: Setup App Homepage
+  url: /app-homepage.config.md

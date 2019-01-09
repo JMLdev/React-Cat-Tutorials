@@ -19,4 +19,6 @@ Welcome to our in-depth React.js course. The goal of this course is to teach sev
 - Creating pages which use custom components and `props` to render
 - Leverage an external API to retreive data
 
+At any point during the lesson, you can check the completed code on Github, or checkout the completed branch from the project repo if you get lost.
+
 [Lets get started](configuration.md)
