@@ -1,3 +1,9 @@
+# Welcome to React Cat Tutorials
+
+This repo is a github-pages hosted tutorial site for another project, [cat-cute](https://github.com/JMLdev/cat-cute). The purpose is to teach everyone how to create a React.js project that leverages an external API and host React.js projects on Github.
+
+## Local installation and development
+
 Make sure you have Ruby installed to serve the site locally
 
 `bundle install` to install required packages
