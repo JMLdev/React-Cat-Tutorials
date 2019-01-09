@@ -43,11 +43,11 @@
                                 {% unless forloop.first %}
                                     {% assign prev_num = forloop.index | minus: 2 %}
                                     {% assign prev = site.data.sidebar.docs[prev_num] %}
-                                    <a href="{{prev.url}}" class="pagination-prev"><span class="arrows">&larr;</span> {{ prev.title }}</a>
+                                    <a href="{{site.baseurl}}{{prev.url}}" class="pagination-prev"><span class="arrows">&larr;</span> {{ prev.title }}</a>
                                 {% endunless %}
                                 {% unless forloop.last %}
                                     {% assign next = site.data.sidebar.docs[forloop.index] %}
-                                    <a href="{{next.url}}" class="pagination-next">{{ next.title }} <span class="arrows">&rarr;</span></a>
+                                    <a href="{{site.baseurl}}{{next.url}}" class="pagination-next">{{ next.title }} <span class="arrows">&rarr;</span></a>
                                 {% endunless %}
                             {% endif %}
                         {% endfor %}
@@ -60,7 +60,7 @@
                 <nav class="sidebar-nav">
                     <ul>
                         {% for item in site.data.sidebar.docs %}
-                        <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+                        <li><a href="{{absolute_url }}{{ item.url }}">{{ item.title }}</a></li>
                         {% endfor %}
                     </ul>
                 </nav>
