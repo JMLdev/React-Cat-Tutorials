@@ -60,7 +60,7 @@
                 <nav class="sidebar-nav">
                     <ul>
                         {% for item in site.data.sidebar.docs %}
-                        <li><a href="{{absolute_url }}{{ item.url }}">{{ item.title }}</a></li>
+                        <li><a href="{{site.baseurl}}{{ item.url }}">{{ item.title }}</a></li>
                         {% endfor %}
                     </ul>
                 </nav>
