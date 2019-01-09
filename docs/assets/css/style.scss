@@ -3,31 +3,59 @@
 
 @import "{{ site.theme }}";
 
-.inner {
-    width: 80%;
-}
+@media only screen and (min-width: 767px) {
+    .inner {
+        width: 80%;
+    }
+    // doesn't actually transpile sass for some reason. Need to use vanilla CSS.
+    #main-content {
+        width: 78%;
+        float: right;
+        background: transparent url(../images/sidebar-bg.jpg) 0 0 no-repeat;
+    }
 
-#main-content {
-    width: 78%;
-    float: right;
-    background: transparent url(../images/sidebar-bg.jpg) 0 0 no-repeat;
-}
+    aside#sidebar {
+        width: 18%;
+        float: left;
+        background: none;
+    }
 
-aside#sidebar {
-    width: 18%;
-    float: left;
-    font-size: 16px;
-    background: none;
+    .main-content-wrap {
+        padding-left: 60px;
+    }
 }
 
 body {
     font-size: 18px;
 }
 
+aside#sidebar {
+    font-size: 16px;
+}
+
 header h1 {
     width: auto;
 }
 
-.main-content-wrap {
-    padding-left: 60px;
+nav.sidebar-nav ul {
+    margin-left: 0;
+    padding-left: 0
+}
+
+li {
+    list-style: none;
+    margin-bottom: 6px;
+}
+
+.pagination {
+    margin-top: 84px;
+}
+
+.pagination-next {
+    float: right;
+}
+
+.arrows {
+    font-size: 24px;
+    display: inline-block;
 }

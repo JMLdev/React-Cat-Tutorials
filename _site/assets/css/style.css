@@ -388,14 +388,22 @@ footer a:hover { color: #444; }
   #main-content h1:before, #main-content h2:before, #main-content h3:before, #main-content h4:before, #main-content h5:before, #main-content h6:before { padding-right: 0; margin-left: 0; content: none; } }
 /* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
 /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
-.inner { width: 80%; }
-
-#main-content { width: 78%; float: right; background: transparent url(../images/sidebar-bg.jpg) 0 0 no-repeat; }
-
-aside#sidebar { width: 18%; float: left; font-size: 16px; background: none; }
-
+@media only screen and (min-width: 767px) { .inner { width: 80%; }
+  #main-content { width: 78%; float: right; background: transparent url(../images/sidebar-bg.jpg) 0 0 no-repeat; }
+  aside#sidebar { width: 18%; float: left; background: none; }
+  .main-content-wrap { padding-left: 60px; } }
 body { font-size: 18px; }
+
+aside#sidebar { font-size: 16px; }
 
 header h1 { width: auto; }
 
-.main-content-wrap { padding-left: 60px; }
+nav.sidebar-nav ul { margin-left: 0; padding-left: 0; }
+
+li { list-style: none; margin-bottom: 6px; }
+
+.pagination { margin-top: 84px; }
+
+.pagination-next { float: right; }
+
+.arrows { font-size: 24px; display: inline-block; }

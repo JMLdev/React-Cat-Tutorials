@@ -2,3 +2,5 @@ theme: jekyll-theme-architect
 github: [metadata]
 title: React.js Tutorial
 description: Tutorial pages for a Github hosted React App. App leverages an external API, React-router, React-dom, and several other modules.
+sass:
+    sass_dir: assets/css/style.scss

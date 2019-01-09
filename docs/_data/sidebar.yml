@@ -2,13 +2,13 @@ docs_list_title: Navigation
 docs:
 
 - title: Introduction
-  url: index.html
+  url: /index.html
 
 - title: Installation Dependencies
-  url: dependencies.html
+  url: /dependencies.html
 
 - title: Configuration
-  url: configuration.html
+  url: /configuration.html
 
 - title: Project Setup
-  url: setup.html
+  url: /setup.html

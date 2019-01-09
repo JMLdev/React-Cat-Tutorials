@@ -37,16 +37,33 @@
             <section id="main-content">
                 <div class="main-content-wrap">
                     {{ content }}
+                    <nav class="pagination">
+                        {% for item in site.data.sidebar.docs %}
+                            {% if item.url == page.url %}
+                                {% unless forloop.first %}
+                                    {% assign prev_num = forloop.index | minus: 2 %}
+                                    {% assign prev = site.data.sidebar.docs[prev_num] %}
+                                    <a href="{{prev.url}}" class="pagination-prev"><span class="arrows">&larr;</span> {{ prev.title }}</a>
+                                {% endunless %}
+                                {% unless forloop.last %}
+                                    {% assign next = site.data.sidebar.docs[forloop.index] %}
+                                    <a href="{{next.url}}" class="pagination-next">{{ next.title }} <span class="arrows">&rarr;</span></a>
+                                {% endunless %}
+                            {% endif %}
+                        {% endfor %}
+                    </nav>
                 </div>
             </section>
 
             <aside id="sidebar">
                 <h2>{{ site.data.sidebar.docs_list_title }}</h2>
-                <ul>
-                    {% for item in site.data.sidebar.docs %}
-                    <li><a href="{{ item.url }}">{{ item.title }}</a></li>
-                    {% endfor %}
-                </ul>
+                <nav class="sidebar-nav">
+                    <ul>
+                        {% for item in site.data.sidebar.docs %}
+                        <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </nav>
                 {% if site.show_downloads %}
                 <a href="{{ site.github.zip_url }}" class="button">
                     <small>Download</small>
