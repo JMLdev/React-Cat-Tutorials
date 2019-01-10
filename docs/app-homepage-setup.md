@@ -33,6 +33,8 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 line takes everything in the `<App />` component and renders it to the DOM element with an ID of `root`. This is a simple named div in the `index.html` file in the public folder of your repo. You can open `public/index.html` and see that it is nothing more than an empty div. This is because React renders everything asyncronously and dynamically when the application loads, following all the instructions in your methods, functions, classes, and modules.
 
+## App.js Overview
+
 Since `index.js` is not doing anything more than calling the `<App />` component, lets open that now. You can see in the code that `App` is imported from `./App`, so go ahead and open that file. There's a bit more code in the `App.js` file, but it is still pretty basic. Here is an overview of what it is doing, in case you haven't figured it out yet. 
 
 1. Importing React modules from `'react'`
