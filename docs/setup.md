@@ -54,7 +54,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 The top of your index.js file should now look like this. We've grouped React stuff together, and then anciliary stuff at the end.
 
-```
+```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
