@@ -388,10 +388,6 @@ footer a:hover { color: #444; }
   #main-content h1:before, #main-content h2:before, #main-content h3:before, #main-content h4:before, #main-content h5:before, #main-content h6:before { padding-right: 0; margin-left: 0; content: none; } }
 /* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
 /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
-@media only screen and (min-width: 767px) { .inner { width: 80%; }
-  #main-content { width: 78%; float: right; background: transparent url(../images/sidebar-bg.jpg) 0 0 no-repeat; }
-  aside#sidebar { width: 18%; float: left; background: none; }
-  .main-content-wrap { padding-left: 60px; } }
 body { font-size: 18px; }
 
 aside#sidebar { font-size: 16px; }
@@ -404,12 +400,20 @@ aside#sidebar nav.sidebar-nav li { list-style: none; margin-bottom: 6px; }
 
 .pagination { margin-top: 84px; }
 
-.pagination-next { float: right; }
+.pagination a { display: block; }
+
+.pagination-next { margin-top: 16px; }
 
 .arrows { font-size: 24px; display: inline-block; }
 
 ol { padding-left: 20px; }
 
+@media only screen and (min-width: 767px) { .inner { width: 80%; }
+  #main-content { width: 78%; float: right; background: transparent url(../images/sidebar-bg.jpg) 0 0 no-repeat; }
+  aside#sidebar { width: 18%; float: left; background: none; }
+  .main-content-wrap { padding-left: 60px; }
+  .pagination a { display: inline; }
+  .pagination-next { margin-top: 0; float: right; } }
 /* Dracula Theme v1.2.5  https://github.com/zenorocha/dracula-theme  Copyright 2016, All rights reserved  Code licensed under the MIT license http://zenorocha.mit-license.org  @author Rob G <wowmotty@gmail.com> @author Chris Bracco <chris@cbracco.me> @author Zeno Rocha <hi@zenorocha.com> */
 .highlight .hll { background-color: #f1fa8c; }
 

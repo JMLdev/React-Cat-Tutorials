@@ -3,28 +3,6 @@
 
 @import "{{ site.theme }}";
 
-@media only screen and (min-width: 767px) {
-    .inner {
-        width: 80%;
-    }
-    // doesn't actually transpile sass for some reason. Need to use vanilla CSS.
-    #main-content {
-        width: 78%;
-        float: right;
-        background: transparent url(../images/sidebar-bg.jpg) 0 0 no-repeat;
-    }
-
-    aside#sidebar {
-        width: 18%;
-        float: left;
-        background: none;
-    }
-
-    .main-content-wrap {
-        padding-left: 60px;
-    }
-}
-
 body {
     font-size: 18px;
 }
@@ -51,8 +29,12 @@ aside#sidebar nav.sidebar-nav li {
     margin-top: 84px;
 }
 
+.pagination a {
+    display: block;
+}
+
 .pagination-next {
-    float: right;
+    margin-top: 16px;
 }
 
 .arrows {
@@ -62,6 +44,37 @@ aside#sidebar nav.sidebar-nav li {
 
 ol {
     padding-left: 20px;
+}
+
+@media only screen and (min-width: 767px) {
+    .inner {
+        width: 80%;
+    }
+    // doesn't actually transpile sass for some reason. Need to use vanilla CSS.
+    #main-content {
+        width: 78%;
+        float: right;
+        background: transparent url(../images/sidebar-bg.jpg) 0 0 no-repeat;
+    }
+
+    aside#sidebar {
+        width: 18%;
+        float: left;
+        background: none;
+    }
+
+    .main-content-wrap {
+        padding-left: 60px;
+    }
+
+    .pagination a {
+        display: inline;
+    }
+
+    .pagination-next {
+        margin-top: 0;
+        float: right;
+    }
 }
 
 /* Dracula Theme v1.2.5
