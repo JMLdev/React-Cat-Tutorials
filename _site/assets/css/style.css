@@ -400,13 +400,15 @@ header h1 { width: auto; }
 
 nav.sidebar-nav ul { margin-left: 0; padding-left: 0; }
 
-li { list-style: none; margin-bottom: 6px; }
+aside#sidebar nav.sidebar-nav li { list-style: none; margin-bottom: 6px; }
 
 .pagination { margin-top: 84px; }
 
 .pagination-next { float: right; }
 
 .arrows { font-size: 24px; display: inline-block; }
+
+ol { padding-left: 20px; }
 
 /* Dracula Theme v1.2.5  https://github.com/zenorocha/dracula-theme  Copyright 2016, All rights reserved  Code licensed under the MIT license http://zenorocha.mit-license.org  @author Rob G <wowmotty@gmail.com> @author Chris Bracco <chris@cbracco.me> @author Zeno Rocha <hi@zenorocha.com> */
 .highlight .hll { background-color: #f1fa8c; }

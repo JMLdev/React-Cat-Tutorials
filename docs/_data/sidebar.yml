@@ -13,5 +13,11 @@ docs:
 - title: Project Setup
   url: /setup.html
 
-- title: Setup App Homepage
-  url: /app-homepage-config.html
+- title: App Homepage Concepts
+  url: /app-homepage-concepts.html
+
+- title: App Homepage Setup
+  url: /app-homepage-setup.html
+
+- title: Creating Our Homepage
+  url: /creating-our-homepage.html

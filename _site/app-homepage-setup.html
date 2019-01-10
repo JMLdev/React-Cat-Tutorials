@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/assets/css/style.css?v="
+        media="screen" type="text/css">
+    <link rel="stylesheet" href="/assets/css/print.css" media="print" type="text/css">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Index Structure Overview | React.js Tutorial</title>
+<meta name="generator" content="Jekyll v3.7.4" />
+<meta property="og:title" content="Index Structure Overview" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Tutorial pages for a Github hosted React App. App leverages an external API, React-router, React-dom, and several other modules." />
+<meta property="og:description" content="Tutorial pages for a Github hosted React App. App leverages an external API, React-router, React-dom, and several other modules." />
+<link rel="canonical" href="http://localhost:4000/app-homepage-setup.html" />
+<meta property="og:url" content="http://localhost:4000/app-homepage-setup.html" />
+<meta property="og:site_name" content="React.js Tutorial" />
+<script type="application/ld+json">
+{"@type":"WebPage","headline":"Index Structure Overview","url":"http://localhost:4000/app-homepage-setup.html","description":"Tutorial pages for a Github hosted React App. App leverages an external API, React-router, React-dom, and several other modules.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+<body>
+    <header>
+        <div class="inner">
+            <a href="http://localhost:4000/">
+                <h1>React.js Tutorial</h1>
+            </a>
+            <h2>Tutorial pages for a Github hosted React App. App leverages an external API, React-router, React-dom, and several other modules.</h2>
+            
+            
+        </div>
+    </header>
+
+    <div id="content-wrapper">
+        <div class="inner clearfix">
+            <section id="main-content">
+                <div class="main-content-wrap">
+                    <h1 id="index-structure-overview">Index Structure Overview</h1>
+
+<p>Okay, I lied, we’re not quite ready to start writing code yet. First, lets explore the project as it currently is.</p>
+
+<p>Open the file tree and look at the src folder. The index.js file is the outermost part of the React structure. It is the shell that serves everything else. Unless you’ve changed something, your code should look like this</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">React</span> <span class="k">from</span> <span class="s1">'react'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">ReactDOM</span> <span class="k">from</span> <span class="s1">'react-dom'</span><span class="p">;</span>
+<span class="k">import</span> <span class="s1">'./index.css'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">App</span> <span class="k">from</span> <span class="s1">'./App'</span><span class="p">;</span>
+
+<span class="k">import</span> <span class="s2">"bootstrap/dist/css/bootstrap.min.css"</span><span class="p">;</span>
+<span class="k">import</span> <span class="o">*</span> <span class="k">as</span> <span class="nx">serviceWorker</span> <span class="k">from</span> <span class="s1">'./serviceWorker'</span><span class="p">;</span>
+
+<span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">App</span> <span class="o">/&gt;</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'root'</span><span class="p">));</span>
+
+<span class="c1">// If you want your app to work offline and load faster, you can change</span>
+<span class="c1">// unregister() to register() below. Note this comes with some pitfalls.</span>
+<span class="c1">// Learn more about service workers: http://bit.ly/CRA-PWA</span>
+<span class="nx">serviceWorker</span><span class="p">.</span><span class="nx">unregister</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>At the top of the file are the imports, this is where it calls in other resources, components, modules, and everything it needs to load the full application. The</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">App</span> <span class="o">/&gt;</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'root'</span><span class="p">));</span>
+</code></pre></div></div>
+
+<p>line takes everything in the <code class="highlighter-rouge">&lt;App /&gt;</code> component and renders it to the DOM element with an ID of <code class="highlighter-rouge">root</code>. This is a simple named div in the <code class="highlighter-rouge">index.html</code> file in the public folder of your repo. You can open <code class="highlighter-rouge">public/index.html</code> and see that it is nothing more than an empty div. This is because React renders everything asyncronously and dynamically when the application loads, following all the instructions in your methods, functions, classes, and modules.</p>
+
+<p>Since <code class="highlighter-rouge">index.js</code> is not doing anything more than calling the <code class="highlighter-rouge">&lt;App /&gt;</code> component, lets open that now. You can see in the code that <code class="highlighter-rouge">App</code> is imported from <code class="highlighter-rouge">./App</code>, so go ahead and open that file. There’s a bit more code in the <code class="highlighter-rouge">App.js</code> file, but it is still pretty basic. Here is an overview of what it is doing, in case you haven’t figured it out yet.</p>
+
+<ol>
+  <li>Importing React modules from <code class="highlighter-rouge">'react'</code></li>
+  <li>Importing an svg image as <code class="highlighter-rouge">logo</code></li>
+  <li>Importing some CSS rules from <code class="highlighter-rouge">App.css</code></li>
+  <li>Defining a React Class as <code class="highlighter-rouge">App</code></li>
+  <li>Using basic JSX markup to create the module’s HTML structure</li>
+  <li>Exporting the Component as the default component for the file</li>
+</ol>
+
+<p>Now the <code class="highlighter-rouge">App</code> component can be imported and called by any other React page, but in this case, it is only called by the <code class="highlighter-rouge">index.js</code> file. So as of now, the hierarchy for this application is <code class="highlighter-rouge">index.js</code> as the outermost parent, then <code class="highlighter-rouge">app.js</code> as it’s child. For the most part, <code class="highlighter-rouge">App</code> will be used as the top-level parent for this application. This is important, since React has <a href="https://reactjs.org/docs/lifting-state-up.html">strict hierarchy rules</a> for <code class="highlighter-rouge">state</code> and <code class="highlighter-rouge">props</code>. It’s probably a bit too early to dive into those concepts yet, so just take the basics and move on. It should all start making more sense as you work through the course.</p>
+
+<p>Lets update the homepage to be more representative of our needs. Continue to the next lesson.</p>
+
+                    <nav class="pagination">
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                                
+                                    
+                                    
+                                    <a href="/app-homepage-concepts.html" class="pagination-prev"><span class="arrows">&larr;</span> App Homepage Concepts</a>
+                                
+                                
+                                    
+                                    <a href="/creating-our-homepage.html" class="pagination-next">Creating Our Homepage <span class="arrows">&rarr;</span></a>
+                                
+                            
+                        
+                            
+                        
+                    </nav>
+                </div>
+            </section>
+
+            <aside id="sidebar">
+                <h2>Navigation</h2>
+                <nav class="sidebar-nav">
+                    <ul>
+                        
+                        <li><a href="/index.html">Introduction</a></li>
+                        
+                        <li><a href="/dependencies.html">Installation Dependencies</a></li>
+                        
+                        <li><a href="/configuration.html">Configuration</a></li>
+                        
+                        <li><a href="/setup.html">Project Setup</a></li>
+                        
+                        <li><a href="/app-homepage-concepts.html">App Homepage Concepts</a></li>
+                        
+                        <li><a href="/app-homepage-setup.html">App Homepage Setup</a></li>
+                        
+                        <li><a href="/creating-our-homepage.html">Creating Our Homepage</a></li>
+                        
+                    </ul>
+                </nav>
+                
+
+                
+
+                <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</p>
+            </aside>
+        </div>
+    </div>
+
+    
+</body>
+
+</html>

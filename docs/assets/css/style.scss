@@ -42,7 +42,7 @@ nav.sidebar-nav ul {
     padding-left: 0
 }
 
-li {
+aside#sidebar nav.sidebar-nav li {
     list-style: none;
     margin-bottom: 6px;
 }
@@ -58,6 +58,10 @@ li {
 .arrows {
     font-size: 24px;
     display: inline-block;
+}
+
+ol {
+    padding-left: 20px;
 }
 
 /* Dracula Theme v1.2.5

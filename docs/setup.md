@@ -64,4 +64,4 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import * as serviceWorker from './serviceWorker';
 ```
 
-That's it! You have a fully functional React.js application that is leveraging Reactstrap for styling and component markup. Go ahead to the next lesson to start building. 
+That's it! You have a fully functional React.js application that is leveraging Reactstrap for styling and component markup. Go ahead to the next lesson for an overview of some key concepts before you start building. 

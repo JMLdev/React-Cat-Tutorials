@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/assets/css/style.css?v="
+        media="screen" type="text/css">
+    <link rel="stylesheet" href="/assets/css/print.css" media="print" type="text/css">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Introduction | React.js Tutorial</title>
+<meta name="generator" content="Jekyll v3.7.4" />
+<meta property="og:title" content="Introduction" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Tutorial pages for a Github hosted React App. App leverages an external API, React-router, React-dom, and several other modules." />
+<meta property="og:description" content="Tutorial pages for a Github hosted React App. App leverages an external API, React-router, React-dom, and several other modules." />
+<link rel="canonical" href="http://localhost:4000/app-homepage-concepts.html" />
+<meta property="og:url" content="http://localhost:4000/app-homepage-concepts.html" />
+<meta property="og:site_name" content="React.js Tutorial" />
+<script type="application/ld+json">
+{"@type":"WebPage","headline":"Introduction","url":"http://localhost:4000/app-homepage-concepts.html","description":"Tutorial pages for a Github hosted React App. App leverages an external API, React-router, React-dom, and several other modules.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+<body>
+    <header>
+        <div class="inner">
+            <a href="http://localhost:4000/">
+                <h1>React.js Tutorial</h1>
+            </a>
+            <h2>Tutorial pages for a Github hosted React App. App leverages an external API, React-router, React-dom, and several other modules.</h2>
+            
+            
+        </div>
+    </header>
+
+    <div id="content-wrapper">
+        <div class="inner clearfix">
+            <section id="main-content">
+                <div class="main-content-wrap">
+                    <h1 id="app-homepage-concepts">App Homepage Concepts</h1>
+
+<p>In the next lesson we’re going to add some JSX to create a homepage that matches our site intent. We want to let users know what the site is for, and give them options to navigate to the pages were the action actually takes place.</p>
+
+<p>We’re not going to dive too heavily into React’s complexities yet, since our home page won’t have any fancy functionality at that point, but we will cover some important React concepts.</p>
+
+<h2 id="intro-to-jsx">Intro to JSX</h2>
+
+<p>React uses a hybrid syntax called JSX. It is a mixture of HTML and JavaScript. This allows us to easily add logic and functionality to markup, without having to write confusing concatination functions.</p>
+
+<p>Here is a simple example of JSX in use</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">name</span> <span class="o">=</span> <span class="s1">'Josh Perez'</span><span class="p">;</span>
+<span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Hello</span><span class="p">,</span> <span class="p">{</span><span class="nx">name</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/h1&gt;</span><span class="err">;
+</span></code></pre></div></div>
+
+<p>In this particular example, the <code class="highlighter-rouge">{name}</code> portion of the markup will render out to the browser as Josh Perez. Pretty cool, right? Although this is a simple example, there is a lot of power in this syntax. It frees up some mental overhead when structuring the DOM, so you can focus more on the logic and less on the markup. This is an important concept in React. If you don’t quite grasp it, then please read more about JSX on the <a href="https://reactjs.org/docs/introducing-jsx.html">official documentation page</a>. If you’ve used templating frameworks before, such as Handlebars.js, then you’re already familiar with this concept, but in React, the syntax comes with the full power of JavaScript.</p>
+
+<h2 id="introduction-to-components">Introduction to Components</h2>
+
+<p>Another important concept in React is components. Components are the building block of your application. If you’re a front-end developer, then think of them as you would what you’ve traditionally called a ‘component’. They’re small chunks of a website that can be reused throughout the site. Unlike your ‘traditional component’, they can be completely self-contained. What this means is that you can embed a component with all of it’s associated functions, methods, and even styling, so that it is truly portable. If you’re a back-end developer or engineer, then you’d probably compare a component to a Class. Matter of fact, that’s exactly what they’re described as in the syntax.</p>
+
+<h4 id="component-example">Component Example</h4>
+
+<p>Consider the following code</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Welcome</span> <span class="kd">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Hello</span><span class="p">,</span> <span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/h1&gt;</span><span class="err">;
+</span>  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>It’s extending our earlier example and encapsulating it into a component. Now you can call <code class="highlighter-rouge">&lt;Welcome /&gt;</code> Anywhere else in your app (as long as you’ve imported it - more on this later) and it’ll render out <code class="highlighter-rouge">&lt;h1&gt;Hello Name&lt;/h1&gt;</code> to the DOM, where name is whatever you’ve defined it as. Pretty cool. Right?</p>
+
+<p>Ready to actually write some code? Well lets get to it in the next lesson.</p>
+
+                    <nav class="pagination">
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                                
+                                    
+                                    
+                                    <a href="/setup.html" class="pagination-prev"><span class="arrows">&larr;</span> Project Setup</a>
+                                
+                                
+                                    
+                                    <a href="/app-homepage-setup.html" class="pagination-next">App Homepage Setup <span class="arrows">&rarr;</span></a>
+                                
+                            
+                        
+                            
+                        
+                            
+                        
+                    </nav>
+                </div>
+            </section>
+
+            <aside id="sidebar">
+                <h2>Navigation</h2>
+                <nav class="sidebar-nav">
+                    <ul>
+                        
+                        <li><a href="/index.html">Introduction</a></li>
+                        
+                        <li><a href="/dependencies.html">Installation Dependencies</a></li>
+                        
+                        <li><a href="/configuration.html">Configuration</a></li>
+                        
+                        <li><a href="/setup.html">Project Setup</a></li>
+                        
+                        <li><a href="/app-homepage-concepts.html">App Homepage Concepts</a></li>
+                        
+                        <li><a href="/app-homepage-setup.html">App Homepage Setup</a></li>
+                        
+                        <li><a href="/creating-our-homepage.html">Creating Our Homepage</a></li>
+                        
+                    </ul>
+                </nav>
+                
+
+                
+
+                <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</p>
+            </aside>
+        </div>
+    </div>
+
+    
+</body>
+
+</html>
