@@ -14,9 +14,9 @@
     <![endif]-->
 
     <!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>React.js Tutorial | Tutorial pages for a Github hosted React App. App leverages an external API, React-router, React-dom, and several other modules.</title>
+<title>Creating the Homepage | React.js Tutorial</title>
 <meta name="generator" content="Jekyll v3.7.4" />
-<meta property="og:title" content="React.js Tutorial" />
+<meta property="og:title" content="Creating the Homepage" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Tutorial pages for a Github hosted React App. App leverages an external API, React-router, React-dom, and several other modules." />
 <meta property="og:description" content="Tutorial pages for a Github hosted React App. App leverages an external API, React-router, React-dom, and several other modules." />
@@ -24,7 +24,7 @@
 <meta property="og:url" content="http://localhost:4000/creating-our-homepage.html" />
 <meta property="og:site_name" content="React.js Tutorial" />
 <script type="application/ld+json">
-{"@type":"WebPage","headline":"React.js Tutorial","url":"http://localhost:4000/creating-our-homepage.html","description":"Tutorial pages for a Github hosted React App. App leverages an external API, React-router, React-dom, and several other modules.","@context":"http://schema.org"}</script>
+{"@type":"WebPage","headline":"Creating the Homepage","url":"http://localhost:4000/creating-our-homepage.html","description":"Tutorial pages for a Github hosted React App. App leverages an external API, React-router, React-dom, and several other modules.","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -45,7 +45,91 @@
         <div class="inner clearfix">
             <section id="main-content">
                 <div class="main-content-wrap">
-                    <p>Blip</p>
+                    <h1 id="create-home-page">Create Home Page</h1>
+
+<p>Wewt wewt! Finally time to add some code. This will mostly just be JSX without any logic at this point, but every app starts somewhere. You may remember a few lessons ago, I talked about making our homepage more representative of the apps purpose. Here’s a list of what I want on the homepage as a nice starting point for our app.</p>
+
+<ul>
+  <li>Heading</li>
+  <li>Graph of progress</li>
+  <li>A paragraph describing the purpose of the site</li>
+  <li>A couple of cards describing each page we will have, with a link to the page</li>
+</ul>
+
+<p>That’s pretty much all we need. Fortunately, the nice community behind Bootstrap have already written all the CSS we need to make the page pretty. Since there’s no sense in reinventing the wheel, lets go ahead and import Reactstrap.</p>
+
+<h2 id="importing-reactstrap-components">Importing Reactstrap Components</h2>
+
+<p>Open the <code class="highlighter-rouge">App.js</code> file in the root of your project and delete the <code class="highlighter-rouge">import logo from './logo.svg';</code> line, since we aren’t going to use that logo, and then add the following code at the top, right underneath <code class="highlighter-rouge">import './App.css</code>.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Container</span><span class="p">,</span> <span class="nx">Row</span><span class="p">,</span> <span class="nx">Col</span><span class="p">,</span> <span class="nx">Card</span><span class="p">,</span> <span class="nx">CardImg</span><span class="p">,</span> <span class="nx">CardText</span><span class="p">,</span> <span class="nx">CardBody</span><span class="p">,</span>
+  <span class="nx">CardTitle</span><span class="p">,</span> <span class="nx">CardSubtitle</span><span class="p">,</span> <span class="nx">Button</span><span class="p">,</span> <span class="nx">Progress</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'reactstrap'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>The above code is going to find <code class="highlighter-rouge">reactstrap</code> in the node_modules folder and then import the components we specified. If you take  a look at what we’re importing, you’ll see it’s pretty much everything from our bullet list of needed DOM components.</p>
+
+<h2 id="calling-components">Calling Components</h2>
+
+<p>Once you’ve imported the Reactstrap components, then it’s pretty easy to use them. The syntax is <code class="highlighter-rouge">&lt;Component props='whatever' /&gt;</code>. Notice the code is self closing, and capitalized. Component would be the name of the component, and if the component accepts props, you call them inline for simpler components like in our example. Remember, props are variables values passed into the component itself.</p>
+
+<h2 id="putting-it-all-together">Putting it all together.</h2>
+
+<p>If you aren’t familiar with Bootstrap, and you want to learn more, <a href="https://getbootstrap.com/">then please head over to their website</a>. They have excellent documentation and can explain their framework much more efficiently than I can. Assuming you’re at least somewhat familiar with Bootstrap, and understand the component concept, the homepage code will make sense to you. Here’s what I came up with. Replace everything inside of the <code class="highlighter-rouge">return()</code> function inside of the App component with the following code.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">Container</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">Row</span> <span class="nx">style</span><span class="o">=</span><span class="p">{</span><span class="na">marginBottom</span><span class="p">:</span> <span class="s1">'64px'</span><span class="p">,</span> <span class="na">marginTop</span><span class="p">:</span> <span class="s2">"24px"</span><span class="p">}</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">Col</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span>
+                <span class="nx">Cats</span><span class="p">,</span> <span class="nx">cute</span> <span class="nx">or</span> <span class="nx">crap</span><span class="p">?</span>
+            <span class="o">&lt;</span><span class="sr">/h1</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="sr">/Col</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="sr">/Row</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="nx">Row</span> <span class="nx">style</span><span class="o">=</span><span class="p">{</span><span class="na">marginBottom</span><span class="p">:</span> <span class="s1">'24px'</span><span class="p">}</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">Col</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="nx">h2</span><span class="o">&gt;</span>
+                <span class="nx">Status</span> <span class="nx">so</span> <span class="nx">far</span><span class="p">:</span>
+            <span class="o">&lt;</span><span class="sr">/h2</span><span class="err">&gt;
+</span>            <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="nx">Cute</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>            <span class="o">&lt;</span><span class="nx">Progress</span> <span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="mi">70</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
+</span>            <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="nx">Crap</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>            <span class="o">&lt;</span><span class="nx">Progress</span> <span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="mi">20</span><span class="p">}</span> <span class="nx">color</span><span class="o">=</span><span class="p">{</span><span class="s2">"danger"</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="sr">/Col</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="sr">/Row</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="nx">Row</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">Col</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="nx">p</span> <span class="nx">style</span><span class="o">=</span><span class="p">{</span><span class="na">marginBottom</span><span class="p">:</span> <span class="s1">'24px'</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">Cat</span> <span class="nx">ipsum</span> <span class="nx">dolor</span> <span class="nx">sit</span> <span class="nx">amet</span><span class="p">,</span> <span class="nx">sleep</span> <span class="nx">but</span> <span class="nx">scratch</span> <span class="nx">my</span> <span class="nx">tummy</span> <span class="nx">actually</span> <span class="nx">i</span> <span class="nx">hate</span> <span class="nx">you</span> <span class="nx">now</span> <span class="nx">fight</span> <span class="nx">me</span><span class="p">.</span> <span class="nx">Sleep</span> <span class="nx">everywhere</span><span class="p">,</span> <span class="nx">but</span> <span class="nx">not</span> <span class="k">in</span> <span class="nx">my</span> <span class="nx">bed</span> <span class="nx">flop</span> <span class="nx">over</span> <span class="nx">scratch</span> <span class="nx">my</span> <span class="nx">tummy</span> <span class="nx">actually</span> <span class="nx">i</span> <span class="nx">hate</span> <span class="nx">you</span> <span class="nx">now</span> <span class="nx">fight</span> <span class="nx">me</span> <span class="nx">curl</span> <span class="nx">into</span> <span class="nx">a</span> <span class="nx">furry</span> <span class="nx">donut</span><span class="p">.</span> <span class="nx">Chase</span> <span class="nx">after</span> <span class="nx">silly</span> <span class="nx">colored</span> <span class="nx">fish</span> <span class="nx">toys</span> <span class="nx">around</span> <span class="nx">the</span> <span class="nx">house</span> <span class="nx">scratch</span> <span class="nx">my</span> <span class="nx">tummy</span> <span class="nx">actually</span> <span class="nx">i</span> <span class="nx">hate</span> <span class="nx">you</span> <span class="nx">now</span> <span class="nx">fight</span> <span class="nx">me</span> <span class="nx">and</span> <span class="nx">human</span> <span class="nx">clearly</span> <span class="nx">uses</span> <span class="nx">close</span> <span class="nx">to</span> <span class="nx">one</span> <span class="nx">life</span> <span class="nx">a</span> <span class="nx">night</span> <span class="nx">no</span> <span class="nx">one</span> <span class="nx">naps</span> <span class="nx">that</span> <span class="kr">long</span> <span class="nx">so</span> <span class="nx">i</span> <span class="nx">revive</span> <span class="nx">by</span> <span class="nx">standing</span> <span class="nx">on</span> <span class="nx">chestawaken</span><span class="o">!</span> <span class="o">&lt;</span><span class="sr">/p</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="sr">/Col</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="sr">/Row</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="nx">Row</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">Col</span> <span class="nx">sm</span><span class="o">=</span><span class="p">{</span><span class="mi">12</span><span class="p">}</span> <span class="nx">md</span><span class="o">=</span><span class="p">{</span><span class="mi">6</span><span class="p">}</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="nx">Card</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nx">CardImg</span> <span class="nx">top</span> <span class="nx">width</span><span class="o">=</span><span class="s2">"100%"</span> <span class="nx">src</span><span class="o">=</span><span class="s2">"https://placekitten.com/318/180"</span> <span class="nx">alt</span><span class="o">=</span><span class="s2">"Cat image"</span> <span class="o">/&gt;</span>
+                <span class="o">&lt;</span><span class="nx">CardBody</span><span class="o">&gt;</span>
+                    <span class="o">&lt;</span><span class="nx">CardTitle</span><span class="o">&gt;</span><span class="nx">Cute</span> <span class="nx">or</span> <span class="nx">Not</span><span class="p">?</span><span class="o">&lt;</span><span class="sr">/CardTitle</span><span class="err">&gt;
+</span>                    <span class="o">&lt;</span><span class="nx">CardSubtitle</span><span class="o">&gt;</span><span class="nx">Vote</span> <span class="nx">on</span> <span class="nx">pictures</span> <span class="k">of</span> <span class="nx">cats</span><span class="o">&lt;</span><span class="sr">/CardSubtitle</span><span class="err">&gt;
+</span>                    <span class="o">&lt;</span><span class="nx">CardText</span><span class="o">&gt;</span><span class="nx">Cute</span><span class="p">,</span> <span class="nx">or</span> <span class="nx">the</span> <span class="nx">next</span> <span class="nx">ugly</span> <span class="nx">cat</span> <span class="nx">meme</span><span class="p">?</span> <span class="nx">You</span> <span class="nx">be</span> <span class="nx">the</span> <span class="nx">judge</span><span class="p">.</span> <span class="nx">Browse</span> <span class="nx">through</span> <span class="nx">images</span> <span class="k">of</span> <span class="nx">cats</span> <span class="nx">and</span> <span class="nx">determine</span> <span class="nx">which</span> <span class="nx">are</span> <span class="nx">cute</span> <span class="nx">and</span> <span class="nx">which</span> <span class="nx">are</span> <span class="nx">crap</span><span class="p">.</span><span class="o">&lt;</span><span class="sr">/CardText</span><span class="err">&gt;
+</span>                    <span class="o">&lt;</span><span class="nx">Button</span> <span class="nx">color</span><span class="o">=</span><span class="s2">"primary"</span><span class="o">&gt;</span><span class="nx">Vote</span> <span class="nx">Now</span><span class="o">&lt;</span><span class="sr">/Button</span><span class="err">&gt;
+</span>                <span class="o">&lt;</span><span class="sr">/CardBody</span><span class="err">&gt;
+</span>            <span class="o">&lt;</span><span class="sr">/Card</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="sr">/Col</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="nx">Col</span> <span class="nx">sm</span><span class="o">=</span><span class="p">{</span><span class="mi">12</span><span class="p">}</span> <span class="nx">md</span><span class="o">=</span><span class="p">{</span><span class="mi">6</span><span class="p">}</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="nx">Card</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nx">CardImg</span> <span class="nx">top</span> <span class="nx">width</span><span class="o">=</span><span class="s2">"100%"</span> <span class="nx">src</span><span class="o">=</span><span class="s2">"https://placekitten.com/318/181"</span> <span class="nx">alt</span><span class="o">=</span><span class="s2">"Cat image"</span> <span class="o">/&gt;</span>
+                <span class="o">&lt;</span><span class="nx">CardBody</span><span class="o">&gt;</span>
+                    <span class="o">&lt;</span><span class="nx">CardTitle</span><span class="o">&gt;</span><span class="nx">Index</span> <span class="k">of</span> <span class="nx">Results</span><span class="o">&lt;</span><span class="sr">/CardTitle</span><span class="err">&gt;
+</span>                    <span class="o">&lt;</span><span class="nx">CardSubtitle</span><span class="o">&gt;</span><span class="nx">See</span> <span class="nx">a</span> <span class="nx">list</span> <span class="k">of</span> <span class="nx">kitties</span><span class="p">.</span><span class="o">&lt;</span><span class="sr">/CardSubtitle</span><span class="err">&gt;
+</span>                    <span class="o">&lt;</span><span class="nx">CardText</span><span class="o">&gt;</span><span class="nx">How</span> <span class="nx">did</span> <span class="nx">they</span> <span class="nx">fare</span><span class="p">?</span> <span class="nx">Find</span> <span class="nx">out</span> <span class="nx">now</span><span class="p">.</span> <span class="nx">Easily</span> <span class="nx">browse</span> <span class="nx">the</span> <span class="nx">kitty</span> <span class="nx">cats</span> <span class="nx">and</span> <span class="nx">see</span> <span class="nx">their</span> <span class="nx">ranking</span><span class="p">.</span><span class="o">&lt;</span><span class="sr">/CardText</span><span class="err">&gt;
+</span>                    <span class="o">&lt;</span><span class="nx">Button</span> <span class="nx">color</span><span class="o">=</span><span class="s2">"success"</span><span class="o">&gt;</span><span class="nx">View</span> <span class="nx">List</span><span class="o">&lt;</span><span class="sr">/Button</span><span class="err">&gt;
+</span>                <span class="o">&lt;</span><span class="sr">/CardBody</span><span class="err">&gt;
+</span>            <span class="o">&lt;</span><span class="sr">/Card</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="sr">/Col</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="sr">/Row</span><span class="err">&gt;
+</span><span class="o">&lt;</span><span class="sr">/Container</span><span class="err">&gt;
+</span></code></pre></div></div>
+
+<p>Save the file and check your browser. You should have a pretty decent looking homepage at this point. Of course, nothing actually does anything, but we’ll fix that later.</p>
+
+<p>When you look at the page, you can quickly see a few parts of the page that are reusable. Continue to the next lesson to modularize some page elements.</p>
 
                     <nav class="pagination">
                         
@@ -68,6 +152,11 @@
                                     <a href="/app-homepage-setup.html" class="pagination-prev"><span class="arrows">&larr;</span> App Homepage Setup</a>
                                 
                                 
+                                    
+                                    <a href="/modularize-components.html" class="pagination-next">Component Modularization <span class="arrows">&rarr;</span></a>
+                                
+                            
+                        
                             
                         
                     </nav>
@@ -93,13 +182,49 @@
                         
                         <li><a href="/creating-our-homepage.html">Creating Our Homepage</a></li>
                         
+                        <li><a href="/modularize-components.html">Component Modularization</a></li>
+                        
                     </ul>
                 </nav>
+                <!-- Display the branch download if exists -->
                 
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                        
+                        <h3>Current Lesson Code</h3>
+                        <a href="https://github.com/JMLdev/cat-cute/archive/separateFiles.zip" class="button">
+                            <small>Download</small>
+                            .zip file
+                        </a>
+                        <p>We are currently working from the `separateFiles` branch.</p>
+                    
+                
+                    
+                
+                <!-- 
+                <a href="" class="button">
+                    <small>Download</small>
+                    .zip file
+                </a>
+                <a href="" class="button">
+                    <small>Download</small>
+                    .tar.gz file
+                </a>
+                 -->
 
                 
-
-                <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</p>
+<!-- 
+                <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</p> -->
             </aside>
         </div>
     </div>

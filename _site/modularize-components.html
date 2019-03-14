@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/assets/css/style.css?v="
+        media="screen" type="text/css">
+    <link rel="stylesheet" href="/assets/css/print.css" media="print" type="text/css">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Component Modularization | React.js Tutorial</title>
+<meta name="generator" content="Jekyll v3.7.4" />
+<meta property="og:title" content="Component Modularization" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Tutorial pages for a Github hosted React App. App leverages an external API, React-router, React-dom, and several other modules." />
+<meta property="og:description" content="Tutorial pages for a Github hosted React App. App leverages an external API, React-router, React-dom, and several other modules." />
+<link rel="canonical" href="http://localhost:4000/modularize-components.html" />
+<meta property="og:url" content="http://localhost:4000/modularize-components.html" />
+<meta property="og:site_name" content="React.js Tutorial" />
+<script type="application/ld+json">
+{"@type":"WebPage","headline":"Component Modularization","url":"http://localhost:4000/modularize-components.html","description":"Tutorial pages for a Github hosted React App. App leverages an external API, React-router, React-dom, and several other modules.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+<body>
+    <header>
+        <div class="inner">
+            <a href="http://localhost:4000/">
+                <h1>React.js Tutorial</h1>
+            </a>
+            <h2>Tutorial pages for a Github hosted React App. App leverages an external API, React-router, React-dom, and several other modules.</h2>
+            
+            
+        </div>
+    </header>
+
+    <div id="content-wrapper">
+        <div class="inner clearfix">
+            <section id="main-content">
+                <div class="main-content-wrap">
+                    <h1 id="reusing-components">Reusing Components</h1>
+
+<p>Last lesson we identified that a few page components will probably be used more than once. The heading is going to appear on every page and has Some markup and styling on it. We don’t really want to copy this across all the pages, so it’s a perfect candidate for a component. The graph is probably going to need some logic on it, and we don’t necesarily want the app file cluttered with that logic, so it’ll be a component too.</p>
+
+<h2 id="creating-graph-component">Creating Graph Component</h2>
+
+<p>Lets start with the graph. Create a folder in the root of your project and call it <code class="highlighter-rouge">Components</code>. Inside the <code class="highlighter-rouge">Components</code> folder, create a <code class="highlighter-rouge">Graph.js</code> file. This will hold the code for our graph. It’s a pretty simple file. You’ll import React and some Reactstrap components and then it’s pretty much a straight copy/paste from the <a href="https://reactstrap.github.io/components/progress/">Reactstrap docs page for the Progress Component</a>.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">Component</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'react'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">Row</span><span class="p">,</span> <span class="nx">Col</span><span class="p">,</span> <span class="nx">Progress</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'reactstrap'</span><span class="p">;</span>
+
+ <span class="kd">class</span> <span class="nx">Graph</span> <span class="kd">extends</span> <span class="nx">Component</span> <span class="p">{</span>
+    <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="o">&lt;</span><span class="nx">Row</span> <span class="nx">style</span><span class="o">=</span><span class="p">{</span><span class="na">marginBottom</span><span class="p">:</span> <span class="s1">'24px'</span><span class="p">}</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nx">Col</span><span class="o">&gt;</span>
+                    <span class="o">&lt;</span><span class="nx">h2</span><span class="o">&gt;</span>
+                        <span class="nx">Status</span> <span class="nx">so</span> <span class="nx">far</span><span class="p">:</span>
+                    <span class="o">&lt;</span><span class="sr">/h2</span><span class="err">&gt;
+</span>                    <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="nx">Cute</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>                    <span class="o">&lt;</span><span class="nx">Progress</span> <span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="mi">70</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
+</span>                    <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="nx">Crap</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>                    <span class="o">&lt;</span><span class="nx">Progress</span> <span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="mi">20</span><span class="p">}</span> <span class="nx">color</span><span class="o">=</span><span class="p">{</span><span class="s2">"danger"</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
+</span>                <span class="o">&lt;</span><span class="sr">/Col</span><span class="err">&gt;
+</span>            <span class="o">&lt;</span><span class="sr">/Row</span><span class="err">&gt;
+</span>        <span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+ <span class="k">export</span> <span class="k">default</span> <span class="nx">Graph</span><span class="p">;</span>
+</code></pre></div></div>
+<p>That’s pretty much it. Lets create the Heading now.</p>
+
+<h2 id="creating-the-heading">Creating the heading</h2>
+
+<p>Go ahead and create another file in the <code class="highlighter-rouge">Components</code> folder you created in the steps above. You will name it <code class="highlighter-rouge">Heading.js</code>. This one is cooler, because you’re actually going to get to use props for the first time!</p>
+
+<p>Paste the following code into your newly created <code class="highlighter-rouge">Heading.js</code> file.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">Component</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'react'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">Row</span><span class="p">,</span> <span class="nx">Col</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'reactstrap'</span><span class="p">;</span>
+
+ <span class="k">export</span> <span class="kd">class</span> <span class="nx">Heading</span> <span class="kd">extends</span> <span class="nx">Component</span><span class="o">&lt;</span><span class="nx">any</span><span class="o">&gt;</span> <span class="p">{</span>
+
+     <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="o">&lt;</span><span class="nx">Row</span> <span class="nx">style</span><span class="o">=</span><span class="p">{</span><span class="na">marginBottom</span><span class="p">:</span> <span class="s1">'64px'</span><span class="p">,</span> <span class="na">marginTop</span><span class="p">:</span> <span class="s2">"24px"</span><span class="p">}</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nx">Col</span><span class="o">&gt;</span>
+                    <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span>
+                        <span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">heading</span><span class="p">}</span>
+                    <span class="o">&lt;</span><span class="sr">/h1</span><span class="err">&gt;
+</span>                <span class="o">&lt;</span><span class="sr">/Col</span><span class="err">&gt;
+</span>            <span class="o">&lt;</span><span class="sr">/Row</span><span class="err">&gt;
+</span>        <span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+ <span class="k">export</span> <span class="k">default</span> <span class="nx">Heading</span><span class="p">;</span> 
+</code></pre></div></div>
+
+<p>So once again, you’re importing React and Component, importing the Reactstrap components you need, and then laying down some JSX inside the <code class="highlighter-rouge">render()</code> method of the React class. Except this time, you made a prop! Inside the h1 tag is <code class="highlighter-rouge">{this.props.heading}</code>. That’s a named prop. <code class="highlighter-rouge">this</code> means it refers to itself. It’s going to display whatever <code class="highlighter-rouge">this</code> instance of the component inherits from it’s calling parent. To clarify, you will pass a prop value down to the component when you call it, and <code class="highlighter-rouge">this</code> instance of the component will use that value when rendering. <code class="highlighter-rouge">props</code> just tells react that ‘hey, there’s a variable here’. Finally ‘heading’ is the name of the prop. That’s how you’ll call it. We’re going to call it on every page moving forward, but here’s a quick example of how it will be used <code class="highlighter-rouge">&lt;Heading heading="Hello World" /&gt;</code>. This example will render a Reactstrap row and column and an h1 tag with the contents being a string that says “Hello World”. Cool. Right? You’re still with me? Cool!</p>
+
+<h2 id="update-the-homepage">Update the Homepage</h2>
+
+<p>Alright! Now that you’ve created a couple of components, go ahead and use them. Open <code class="highlighter-rouge">App.js</code> up again and add the following code underneath the line where you call in the reactstrap components.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">Graph</span> <span class="k">from</span> <span class="s1">'./Components/Graph'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">Heading</span> <span class="k">from</span> <span class="s1">'./Components/Heading'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Boom! You now have access to the created components. Update the <code class="highlighter-rouge">App.js</code> render markup to use the components instead of the static JSX.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">Row</span> <span class="nx">style</span><span class="o">=</span><span class="p">{</span> <span class="na">marginBottom</span><span class="p">:</span> <span class="s2">"64px"</span><span class="p">,</span> <span class="na">marginTop</span><span class="p">:</span> <span class="s2">"24px"</span> <span class="p">}</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">Col</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Cats</span><span class="p">,</span> <span class="nx">cute</span> <span class="nx">or</span> <span class="nx">crap</span><span class="p">?</span><span class="o">&lt;</span><span class="sr">/h1</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="sr">/Col</span><span class="err">&gt;
+</span><span class="o">&lt;</span><span class="sr">/Row</span><span class="err">&gt;
+</span></code></pre></div></div>
+
+<p>gets replaced with</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">Heading</span> <span class="nx">heading</span><span class="o">=</span><span class="s1">'Cats, cute or crap'</span> <span class="o">/&gt;</span>
+</code></pre></div></div>
+
+<p>Save the file and check your page. It should look exactly the same as before. Lint is probably complaining about an unused variable now, so go ahead and rectify that. Replace</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">Row</span> <span class="nx">style</span><span class="o">=</span><span class="p">{</span> <span class="na">marginBottom</span><span class="p">:</span> <span class="s2">"24px"</span> <span class="p">}</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">Col</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">h2</span><span class="o">&gt;</span><span class="nx">Status</span> <span class="nx">so</span> <span class="nx">far</span><span class="p">:</span><span class="o">&lt;</span><span class="sr">/h2</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="nx">Cute</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="nx">Progress</span> <span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="mi">70</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="nx">Crap</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="nx">Progress</span> <span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="mi">20</span><span class="p">}</span> <span class="nx">color</span><span class="o">=</span><span class="p">{</span><span class="s2">"danger"</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="sr">/Col</span><span class="err">&gt;
+</span><span class="o">&lt;</span><span class="sr">/Row</span><span class="err">&gt;
+</span></code></pre></div></div>
+
+<p>with <code class="highlighter-rouge">&lt;Graph /&gt;</code>. This component doesn’t currently accept any props, so it’s just a simple component call.</p>
+
+                    <nav class="pagination">
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                                
+                                    
+                                    
+                                    <a href="/creating-our-homepage.html" class="pagination-prev"><span class="arrows">&larr;</span> Creating Our Homepage</a>
+                                
+                                
+                            
+                        
+                    </nav>
+                </div>
+            </section>
+
+            <aside id="sidebar">
+                <h2>Navigation</h2>
+                <nav class="sidebar-nav">
+                    <ul>
+                        
+                        <li><a href="/index.html">Introduction</a></li>
+                        
+                        <li><a href="/dependencies.html">Installation Dependencies</a></li>
+                        
+                        <li><a href="/configuration.html">Configuration</a></li>
+                        
+                        <li><a href="/setup.html">Project Setup</a></li>
+                        
+                        <li><a href="/app-homepage-concepts.html">App Homepage Concepts</a></li>
+                        
+                        <li><a href="/app-homepage-setup.html">App Homepage Setup</a></li>
+                        
+                        <li><a href="/creating-our-homepage.html">Creating Our Homepage</a></li>
+                        
+                        <li><a href="/modularize-components.html">Component Modularization</a></li>
+                        
+                    </ul>
+                </nav>
+                <!-- Display the branch download if exists -->
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                        
+                        <h3>Current Lesson Code</h3>
+                        <a href="https://github.com/JMLdev/cat-cute/archive/separateFiles.zip" class="button">
+                            <small>Download</small>
+                            .zip file
+                        </a>
+                        <p>We are currently working from the `separateFiles` branch.</p>
+                    
+                
+                <!-- 
+                <a href="" class="button">
+                    <small>Download</small>
+                    .zip file
+                </a>
+                <a href="" class="button">
+                    <small>Download</small>
+                    .tar.gz file
+                </a>
+                 -->
+
+                
+<!-- 
+                <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</p> -->
+            </aside>
+        </div>
+    </div>
+
+    
+</body>
+
+</html>

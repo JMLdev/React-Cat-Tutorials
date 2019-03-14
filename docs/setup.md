@@ -17,7 +17,7 @@ Once Terminal is open, type the following, where 'my-app-name' is whatever you w
 npx create-react-app my-app-name
 ```
 
-This will isntall React and all of it's associated file requirements, webpack, a local test server, and babel. Once it is finished, type 
+This will install React and all of it's associated file requirements, webpack, a local test server, and babel. Once it is finished, type 
 
 ```
 cd my-app-name
@@ -52,7 +52,7 @@ None of this actually imports the Bootstrap styles to your app though, so we'll 
 import 'bootstrap/dist/css/bootstrap.min.css';
 ```
 
-The top of your index.js file should now look like this. We've grouped React stuff together, and then anciliary stuff at the end.
+The top of your index.js file should now look like this. We've grouped React stuff together, and then anciliary stuff at the end. This particular structure is more personal preference than anything else. TS or ES Lint may throw some errors or warnings, which can be suppressed with a config file. The lint program creators seem to think alphebetical lists are they way to organize this portion of your file, but I personally don't like that method. Feel free to organize it how you see fit. Use alphabetical sorting if you want to conform to ES Lint's suggested styling.
 
 ```javascript
 import React from 'react';

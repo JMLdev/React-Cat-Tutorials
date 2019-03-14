@@ -3,21 +3,32 @@ docs:
 
 - title: Introduction
   url: /index.html
+  branch: 
 
 - title: Installation Dependencies
   url: /dependencies.html
+  branch: 
 
 - title: Configuration
   url: /configuration.html
+  branch: 
 
 - title: Project Setup
   url: /setup.html
+  branch: 
 
 - title: App Homepage Concepts
   url: /app-homepage-concepts.html
+  branch: 
 
 - title: App Homepage Setup
   url: /app-homepage-setup.html
+  branch: separateFiles
 
 - title: Creating Our Homepage
   url: /creating-our-homepage.html
+  branch: separateFiles
+
+- title: Component Modularization
+  url: /modularize-components.html
+  branch: separateFiles
